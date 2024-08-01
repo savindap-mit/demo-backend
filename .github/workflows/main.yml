@@ -8,6 +8,7 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
+  SONARTOKEN: 
 
 jobs:
     unit-testing: 
@@ -31,7 +32,7 @@ jobs:
       - name: SonarCloud Scan
         uses: sonarsource/sonarcloud-github-action@v2.3.0
         env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_TOKEN:  ${{ secrets.SONAR_TOKEN }}
     build-and-push-image:
       runs-on: ubuntu-latest
       permissions:
