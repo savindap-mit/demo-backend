@@ -6,7 +6,8 @@ on:
       - 'feature/*'
 
 env:
-  MONGO_URI: 'test'
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
 
 jobs:
     unit-testing: 
@@ -20,3 +21,20 @@ jobs:
           cache: 'maven'
       - name: Build with Maven
         run: mvn -B package --file pom.xml
+
+    build-and-push-image:
+      runs-on: ubuntu-latest
+      permissions:
+        contents: read
+        packages: write
+        attestations: write
+        id-token: write
+      steps:
+        - name: Checkout repository
+          uses: actions/checkout@v4
+        - name: Login to GitHub Container Registry
+          uses: docker/login-action@v3
+          with:
+            registry: ghcr.io
+            username: ${{ github.actor }}
+            password: ${{ secrets.GITHUB_TOKEN }}
