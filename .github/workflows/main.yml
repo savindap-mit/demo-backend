@@ -36,7 +36,7 @@ jobs:
           with:
             fetch-depth: 0
         - name: SonarCloud Scan
-          uses: sonarsource/sonarcloud-github-action@main
+          uses: sonarsource/sonarcloud-github-action@v2.3.0
           env:
             SONAR_TOKEN:  ${{ secrets.SONAR_TOKEN }}
     build-and-push-image:
