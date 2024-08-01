@@ -9,6 +9,7 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
+  SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
 jobs:
     unit-testing: 
@@ -31,8 +32,8 @@ jobs:
             fetch-depth: 0
         - name: SonarCloud Scan
           uses: sonarsource/sonarcloud-github-action@v2.3.0 
-          env:
-            SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          # env:
+            # SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       # - uses: actions/checkout@v4
       #   with:
       #     fetch-depth: 0
