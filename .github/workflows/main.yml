@@ -27,6 +27,8 @@ jobs:
     sonarcloud:
       runs-on: ubuntu-latest
       steps:
+        - name: Print Token
+          run: echo $SONAR_TOKEN
         - uses: actions/checkout@v4
           with:
             fetch-depth: 0
@@ -41,8 +43,6 @@ jobs:
       #   uses: sonarsource/sonarcloud-github-action@v2.3.0
       #   env:
       #     SONAR_TOKEN:  ${{ secrets.SONAR_TOKEN }}
-        - name: Print Token
-          run: echo $SONAR_TOKEN
     build-and-push-image:
       runs-on: ubuntu-latest
       permissions:
