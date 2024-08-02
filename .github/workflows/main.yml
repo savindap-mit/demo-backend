@@ -31,8 +31,6 @@ jobs:
     sonarcloud:
       runs-on: ubuntu-latest
       steps:
-        - name: Print Token
-          run: echo $SONAR_TOKEN
         - uses: actions/checkout@v4
           with:
             fetch-depth: 0
@@ -82,4 +80,4 @@ jobs:
     #         tags: ${{ steps.meta.outputs.tags }}
     #         labels: ${{ steps.meta.outputs.labels }}
 
-#
+
