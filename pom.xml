@@ -48,12 +48,30 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<!-- <plugin>
+				<groupId>org.sonarsource.scanner.maven</groupId>
+				<artifactId>sonar-maven-plugin</artifactId>
+				<version>4.0.0.4121</version>
+      		</plugin> -->
 			<plugin>
 				<groupId>org.sonarsource.scanner.maven</groupId>
 				<artifactId>sonar-maven-plugin</artifactId>
 				<version>4.0.0.4121</version>
-      		</plugin>
+				<executions>
+				<execution>
+				<phase>verify</phase>
+				<goals>
+				<goal>sonar</goal>
+				</goals>
+				</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 
 </project>
+
+<!-- mvn clean verify -P sonar \
+-Dsonar.host.url=https://sonarcloud.io \
+-Dsonar.organization=savindap-mit \
+-Dsonar.login=691e6c0e49c9a4ca39e66f924fdf11ef04d06933x -->
