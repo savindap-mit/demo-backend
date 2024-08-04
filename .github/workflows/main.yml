@@ -46,7 +46,7 @@ jobs:
           env:
             SONAR_TOKEN:  ${{ secrets.SONAR_TOKEN }}
     Build-and-Push-Image:
-      runs-on: ubuntu-latest
+      runs-on: self-hosted
       permissions:
         contents: read
         packages: write
