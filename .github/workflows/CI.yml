@@ -88,7 +88,7 @@ jobs:
           run:  ls -al 
         - name: Change the Version
           run: |
-            cd manifests
+            cd manifests/manifest
             ls -al
             sed -i 's|image:*|image: '${{ github.sha }}'|' backend.yaml 
             git config --global user.name 'Integrations User'
