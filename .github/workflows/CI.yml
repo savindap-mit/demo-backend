@@ -90,7 +90,7 @@ jobs:
           run: |
             cd manifests/manifest
             ls -al
-            sed -i 's|image:*|image: '${{ github.sha }}'|' backend.yaml 
+            sed -i 's|image:*|image: ghcr.io/savindap-mit/backend:'${{ github.sha }}'|' backend.yaml 
             git config --global user.name 'Integrations User'
             git config --global user.email 'actions@mitesp.com'
             git add backend.yaml
