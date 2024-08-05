@@ -48,6 +48,7 @@ jobs:
             SONAR_TOKEN:  ${{ secrets.SONAR_TOKEN }}
     Build-and-Push-Image:
       runs-on: self-hosted
+      needs: [SAST-SonarCloud,Unit-Testing]
       permissions:
         contents: read
         packages: write
