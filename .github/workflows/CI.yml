@@ -89,6 +89,7 @@ jobs:
         - name: Change the Version
           run: |
             cd manifests
+            ls -al
             sed -i 's|image:*|image: '${{ github.sha }}'|' backend.yaml 
             git config --global user.name 'Integrations User'
             git config --global user.email 'actions@mitesp.com'
