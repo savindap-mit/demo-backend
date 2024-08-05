@@ -6,6 +6,7 @@ on:
       - main
      # - 'feature/*'
 
+
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
@@ -81,7 +82,7 @@ jobs:
           with:
             context: .
             push: true
-            tags: 'ghcr.io/backend:v1'
+            tags: 'backend:v1'
             # tags: ${{  steps.meta.outputs.tags }}
             # labels: ${{ steps.meta.outputs.labels }}
 
