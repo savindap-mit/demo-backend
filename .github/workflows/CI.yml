@@ -76,16 +76,16 @@ jobs:
     #         tags: 'ghcr.io/${{ github.repository_owner }}/backend:${{ github.sha }}'
     update-manifest:
       runs-on: ubuntu-latest
-      #needs: [Build-and-Push-Image]
-          steps:
-            - name: Checkout Manifest Repository
-              uses: actions/checkout@v4
-              with:
-                repository: savindap-mit/demo-argocd
-                token: ${{ secrets.GITHUB_TOKEN }}
-                path: manifests
-            - name: List
-              run:  ls -al 
+      # needs: [Build-and-Push-Image]
+      steps:
+        - name: Checkout Manifest Repository
+          uses: actions/checkout@v4
+          with:
+            repository: savindap-mit/demo-argocd
+            token: ${{ secrets.GITHUB_TOKEN }}
+            path: manifests
+        - name: List
+          run:  ls -al 
 
 
 
