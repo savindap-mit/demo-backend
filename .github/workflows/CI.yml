@@ -82,7 +82,7 @@ jobs:
           uses: actions/checkout@v4
           with:
             repository: savindap-mit/demo-argocd
-            token: ${{ secrets.GITHUB_TOKEN }}
+            token: ${{ secrets.PAT }}
             path: manifests
         - name: List
           run:  ls -al 
