@@ -89,7 +89,7 @@ jobs:
           run:  ls -al 
         - name: Change the Version
           run: |
-            cd manifests/manifest
+            cd manifests/manifest/backend
             ls -al
             sed -i 's|image:.*|image: ghcr.io/savindap-mit/backend:'${{ github.sha }}'|' backend.yaml
             git config --global user.name 'Integrations User'
