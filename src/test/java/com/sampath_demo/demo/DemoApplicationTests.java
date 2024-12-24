@@ -12,7 +12,7 @@ class DemoApplicationTests {
 
   @Test
   void testAddNumbers() {
-      assertEquals(5, demoApplication.addNumbers(2, 3));
+      assertEquals(5, demoApplication.addNumbers(1, 3));
       assertEquals(0, demoApplication.addNumbers(-2, 2));
       assertEquals(-5, demoApplication.addNumbers(-2, -3));
   }
