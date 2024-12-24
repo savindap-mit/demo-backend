@@ -26,7 +26,7 @@ jobs:
         run:  mvn -B clean verify --file pom.xml 
       - name: Upload Test Results
         if: always() # Ensures the step runs even if tests fail
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: test-results
           path: target/surefire-reports/
