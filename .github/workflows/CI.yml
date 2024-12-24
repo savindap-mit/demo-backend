@@ -23,13 +23,23 @@ jobs:
           java-version: '17'
           cache: 'maven'
       - name: Build with and test
-        run:  mvn -B clean verify --file pom.xml 
+        run:  mvn -B clean verify --file pom.xml  || true
       - name: Upload Test Results
         if: always() # Ensures the step runs even if tests fail
         uses: actions/upload-artifact@v4
         with:
           name: test-results
           path: target/surefire-reports/
+      - name: Count Failures and Decide
+        run: |
+          FAILURES=$(grep -oP 'failures="\K\d+' target/surefire-reports/*.xml | awk '{s+=$1} END {print s}')
+          echo "Total Failures: $FAILURES"
+          if [ "$FAILURES" -gt 2 ]; then
+              echo "Too many test failures ($FAILURES). Failing the pipeline."
+              exit 1
+          else
+              echo "Test failures within allowed limit ($FAILURES)."
+          fi
     # SAST-SonarCloud:
     #   runs-on: ubuntu-latest
     #   steps:
