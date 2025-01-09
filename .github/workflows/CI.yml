@@ -6,8 +6,11 @@ on:
       - main
      # - 'feature/*'
   pull_request:
+    types:  
+      - closed
     branches:
       - develop
+#####
 #####
 
 env:
